@@ -1,11 +1,11 @@
 # Ejemplo de uso de RTL
 ![app](https://user-images.githubusercontent.com/95310897/181593838-d9ec5e04-0d56-492b-b263-f85af761bee5.png)
 
-# Testear componentes en React
-
 ### TL;DR 
 
-Si no querés leerme divagando sobre testing andá (acá)[#notas] para ver sólo lo referente a este ejemplo.
+Si no querés leerme divagando sobre testing andá [acá](#notas) para ver sólo lo referente a este ejemplo.
+
+# Testear componentes en React
 
 Hay varias maneras de testear componentes en React. A grosso modo podemos dividirlas en dos categorías:
 - Renderizar árboles de componentes en un entorno simplificado y usar acerciones en sus respectivas salidas.
@@ -45,3 +45,54 @@ Se entiende la idea :joy:...
 Siguiendo una serie de criterios estrictos (_detín, marín, dedó, pingüé..._) vemos que para el desarrollo podemos usar una herramienta como __Storybook__, que nos permitirá en un mismo entorno tener/crear nuestro Design System, nuestros componentes, y testear, tódo con la misma herramienta.
 
 En caso de elegir __Storybook__ como nuestra herramienta de desarrollo, __podremos aplicar nuestro conocimiento en testing con RTL para testera *allí mismo* nuestros componentes_.
+
+# Notas
+
+RTL nos brinda ciertas funciones/métodos que nos permiten testear con facilidad los componentes. A través de ellos podemos renderizarlos, disparar eventos, simular procesos asincrónicos, encontrar elementos en el DOM, verificar su estado (como elemento), su contenido, y muchas cosas más.
+
+Lo bueno de RTL es que tiene un lenguaje sencillo y fácil de dominar:
+
+- La función __render()__ nos permite renderizar el componentes a testear
+- El objeto __screen__ y sus métodos nos permitirán hacer aserciones y encontrar nuestros elementos en el DOM
+- Objetos como __fireEvent__ simularán eventos...
+
+Como se puede observar, los objetos y métodos que nos da RTL son muy fáciles de comprender y usar. 
+
+Las consultas que nos da la función __render__ de RTL son las mismas que las de DOM testing library, pero con el primer argumento ya vinculado al documento (bound):
+
+_DOM testing library: getByTest(node, 'text')_
+_React testing library: getByText('text')_
+
+Los tipos de consultas que tenemos se forman de la siquiente manera:
+
+- getBy
+- findBy
+- queryBy
+- getAllBy
+- findAllBy
+- queryAllBy
+
+Donde "By" puede ser uno de los siguientes:
+
+- ByLabelText
+- ByPlaceholderText
+- ByText
+- ByDisplayValue
+- ByTitle
+- ByRole
+- ByTestId
+
+RTL nos da estas promesas para eventos __async__:
+
+- waitFor
+- waitForElementToBeRemoved
+
+Y los disparadores de eventos:
+
+- fireEvent(nodo, evento)
+- fireEvent.[evento como "click", "focus", etc]
+- act
+
+Para buscar coincidencias de texto, se pueden usar tanto cadenas literales como expresiones regulares (recomendado).
+
+La [documentación](https://testing-library.com/docs/react-testing-library/intro) es muy sencilla y accesible, y cuenta con numerosos ejemplos.
