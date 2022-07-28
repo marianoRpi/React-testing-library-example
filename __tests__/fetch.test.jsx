@@ -7,7 +7,7 @@ import Fetch from '../src/fetch'
 
 const server = setupServer(
   rest.get('/greeting', (_req, res, ctx) => {
-    return res(ctx.json({ greeting: 'hello there' }))
+    return res(ctx.json({ data: { value: 'hello there' } }))
   })
 )
 
