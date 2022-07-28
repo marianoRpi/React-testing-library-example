@@ -3,7 +3,7 @@
 
 ### TL;DR 
 
-Si no querés leerme divagando sobre testing andá [acá](#notas) para ver sólo lo referente a este ejemplo.
+Si no querés leerme divagando sobre testing andá [acá](#Usando-RTL) para ver sólo lo referente a este ejemplo.
 
 # Testear componentes en React
 
@@ -46,7 +46,7 @@ Siguiendo una serie de criterios estrictos (_detín, marín, dedó, pingüé..._
 
 En caso de elegir __Storybook__ como nuestra herramienta de desarrollo, __podremos aplicar nuestro conocimiento en testing con RTL para testera *allí mismo* nuestros componentes_.
 
-# Notas
+# Usando-RTL
 
 RTL nos brinda ciertas funciones/métodos que nos permiten testear con facilidad los componentes. A través de ellos podemos renderizarlos, disparar eventos, simular procesos asincrónicos, encontrar elementos en el DOM, verificar su estado (como elemento), su contenido, y muchas cosas más.
 
