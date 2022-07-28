@@ -96,3 +96,73 @@ Y los disparadores de eventos:
 Para buscar coincidencias de texto, se pueden usar tanto cadenas literales como expresiones regulares (recomendado).
 
 La [documentación](https://testing-library.com/docs/react-testing-library/intro) es muy sencilla y accesible, y cuenta con numerosos ejemplos.
+
+# Salvedades
+
+Por defecto, aplicaciones creadas con __Create React App__ ya soportan (supuestamente) __RTL__ y no requiere configuración extra (de nuevo, supuestamente 😅)
+
+Para correr este ejemplo, simplemente clonar y darle
+```bash
+npm i
+```
+
+Pero si estás creando el proyecto desde cero, deberás instalar RTL
+```bash
+npm install --save-dev @testing-library/react
+```
+
+Si estás usando __jest__ 28 o superior, hay que instalar __jest-environment-jsdom__ de manera separada
+```bash
+npm install --save-dev jest-environment-jsdom
+```
+
+Y agregar en tu __jest.config.js__
+```js
+ module.exports = {
++  testEnvironment: 'jsdom',
+   // ... other options ...
+ }
+ ```
+ 
+ Para otras veriones de __jest__, ver [la configuración.](https://testing-library.com/docs/react-testing-library/setup)
+ 
+ Ahora, __Jest__ por defecto _no va a entender **JSX** en tu código_. Para hacerlo puedes transpilar con babel:
+ 
+ ```bash
+ npm i @babel/preset-react –save-dev
+ 
+ # o con yarn...
+ yarn add -D @babel/preset-react
+ ```
+ 
+ Y luego pon en tu __babel.config.js__
+ ```js
+ module.exports = {
+    presets: [
+      '@babel/preset-react',
+      [ 
+        '@babel/preset-env',
+        {
+          targets: {
+            node: 'current',
+          },
+        },
+      ],
+    ],
+  };
+  ```
+  
+  Finalmente, corre los tests con 
+  ```bash
+  npx jest --watch
+  ```
+  
+  o agrega el comando en tu _package.json_ y simplemente
+  
+  ```bash
+  npm run test
+  ```
+  
+  ¡Prueba agregando nuevos componentes y tests!
+  
+  ¡Y eso es to, eso es to, eso es todo amigos :pig:!
