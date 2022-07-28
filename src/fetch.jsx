@@ -37,7 +37,7 @@ export default function Fetch({ url }) {
     axios
       .get(url)
       .then(response => {
-        const chuckSays = response.data.value
+        const chuckSays = response?.data?.value
         dispatch({ type: 'SUCCESS', chuckSays })
         setButtonClicked(true)
       })
@@ -52,7 +52,7 @@ export default function Fetch({ url }) {
       <button onClick={() => fetchGreeting(url)} disabled={buttonClicked}>
         {buttonText}
       </button>
-      {chuckSays && <h1>{chuckSays}</h1>}
+      {chuckSays && <h1 data-testid='chuck'>{chuckSays}</h1>}
       {error && <p role='alert'>Oops, failed to fetch!</p>}
     </div>
   )
