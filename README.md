@@ -95,6 +95,17 @@ Y los disparadores de eventos:
 
 Para buscar coincidencias de texto, se pueden usar tanto cadenas literales como expresiones regulares (recomendado).
 
+Una vez que encontramos el elemento que buscamos, simplemente usamos aserciones como de costumbre:
+```js
+expect(screen.getByRole('alert')).toHaveTextContent('Oops, failed to fetch!')
+
+expect(screen.getByRole('button')).not.toBeDisabled()
+```
+
+Podemos ver una lista de aserciones de __jest-don__ [en la descripción del paquete](https://www.npmjs.com/package/@testing-library/jest-dom)
+
+O si prefieres una lectura más ligera [este artículo](https://learntechsystems.com/assertions-in-react-testing-library/) es conciso y al grano.
+
 La [documentación](https://testing-library.com/docs/react-testing-library/intro) es muy sencilla y accesible, y cuenta con numerosos ejemplos.
 
 # Salvedades
