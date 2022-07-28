@@ -117,6 +117,11 @@ Para correr este ejemplo, simplemente clonar y darle
 npm i
 ```
 
+Levantar la aplicación con 
+```bash
+npm start
+```
+
 Pero si estás creando el proyecto desde cero, deberás instalar RTL
 ```bash
 npm install --save-dev @testing-library/react
